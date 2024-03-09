@@ -1,0 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.main-page {
+  background: linear-gradient(120deg,#42275a,#734b6d);
+}
+
+#user-menu {
+  position: fixed;
+  right: 9px;
+  top: 48px;
+}
+
+.chatbox {
+  max-height: calc(100vh - 138px - 1rem);
+  width: 100%;
+  overflow-y: auto;
+}
+
+.chatbox::-webkit-scrollbar {
+  width: 16px;
+  z-index: 1000000;
+}
+
+.chatbox::-webkit-scrollbar-track {
+  border-radius: 8px;
+  background-color: transparent;
+  border: none;
+}
+
+.chatbox::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+  background-color: rgba(255,255,255,0.3);
+}
+
+.chatmsg {
+  padding: 10px;
+  border-radius: 10px;
+  outline: 1px solid #fff;
+  margin-top: 7px;
+  width: fit-content;
+  max-width: 80%;
+}
+
+.chatmsg.by-chatbot {
+  align-self: flex-start;
+}
+
+.chatmsg.by-user {
+  align-self: flex-end;
+}
+
+.input-container {
+  padding: 12px 50px 12px 12px;
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  overflow-y: hidden;
+  height: 50px;
+  white-space: nowrap;
+  display: flex;
+}
+
+.input-container #input-field {
+  white-space: nowrap;
+  overflow: hidden;
+  outline: none;
+  border: none;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.message-button {
+  height: 34px;
+  width: 34px;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+#auth-dialog-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dialog-content {
+  height: 80vh;
+  width: 80vw;
+  background-color: white;
+  border-radius: 10px;
+}
+
+#auth-dialog-container .header {
+  padding: 12px;
+  font-size: 20px;
+}
+
+#auth-dialog-container .body {
+  padding: 12px;
+}
+
+#auth-dialog-container .body > div {
+  position: relative;
+  margin-bottom: 11px;
+}
+
+#auth-dialog-container .body > div > input {
+  outline: none;
+  border: 2px solid black;
+  height: 40px;
+  padding: 0 6px;
+  border-radius: 10px;
+}
+
+#auth-dialog-container .body > div.password-input-container > input {
+  padding: 0 40px 0 6px;
+}
+
+#auth-dialog-container .body > div.password-input-container > div {
+  position: absolute;
+  cursor: pointer;
+  right: 8px;
+  top: 7px;
+}
+
+#auth-dialog-container .footer {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#auth-dialog-container .footer > div {
+  cursor: pointer;
+}
+
+.custom-toast-style {
+  font-size: 12px;
+  padding: 10px;
+  position: relative;
+  top: 15px;
+  z-index: 99999 !important;
+}
